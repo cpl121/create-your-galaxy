@@ -63,7 +63,7 @@ const Galaxy = ({
 
   useFrame((_, delta) => {
     if (points.current) {
-      points.current.rotation.y += delta * 0.05;
+      points.current.rotation.y += delta * 0.1;
     }
   });
 

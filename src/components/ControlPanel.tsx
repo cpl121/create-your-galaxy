@@ -1,15 +1,16 @@
 'use client';
 
-import { Slider, Label } from '@/components';
+import { Slider, Label, Button } from '@/components';
 import { Sparkles, Circle, GitBranch, RotateCcw, Shuffle, Power, Palette } from 'lucide-react';
 import type { GalaxyParams } from '@/lib/types';
 
 interface ControlPanelProps {
   galaxyParams: GalaxyParams;
   setGalaxyParams: (params: GalaxyParams) => void;
+  onClickButton: () => void;
 }
 
-const ControlPanel = ({ galaxyParams, setGalaxyParams }: ControlPanelProps) => {
+const ControlPanel = ({ galaxyParams, setGalaxyParams, onClickButton }: ControlPanelProps) => {
   const updateParam = (param: keyof GalaxyParams, value: number | string) => {
     setGalaxyParams({
       ...galaxyParams,
@@ -18,11 +19,11 @@ const ControlPanel = ({ galaxyParams, setGalaxyParams }: ControlPanelProps) => {
   };
 
   return (
-    <div className="h-full bg-gray-900/90 backdrop-blur-sm border-l border-gray-800 p-6 overflow-y-auto">
+    <div className="h-full bg-gray-900/90 backdrop-blur-sm px-6 overflow-y-auto flex flex-col justify-around space-y-4">
       <h2 className="text-xl font-semibold text-white mb-6">Galaxy Parameters</h2>
 
       <div className="space-y-6">
-        <div className="space-y-2">
+        <div className="space-y-1 md:space-y-2">
           <div className="flex items-center justify-between">
             <Label className="flex items-center text-gray-300">
               <Sparkles size={16} className="mr-2 text-purple-400" />
@@ -42,7 +43,7 @@ const ControlPanel = ({ galaxyParams, setGalaxyParams }: ControlPanelProps) => {
           />
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1 md:space-y-2">
           <div className="flex items-center justify-between">
             <Label className="flex items-center text-gray-300">
               <Circle size={16} className="mr-2 text-cyan-400" />
@@ -60,7 +61,7 @@ const ControlPanel = ({ galaxyParams, setGalaxyParams }: ControlPanelProps) => {
           />
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1 md:space-y-2">
           <div className="flex items-center justify-between">
             <Label className="flex items-center text-gray-300">
               <GitBranch size={16} className="mr-2 text-blue-400" />
@@ -78,7 +79,7 @@ const ControlPanel = ({ galaxyParams, setGalaxyParams }: ControlPanelProps) => {
           />
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1 md:space-y-2">
           <div className="flex items-center justify-between">
             <Label className="flex items-center text-gray-300">
               <RotateCcw size={16} className="mr-2 text-indigo-400" />
@@ -96,7 +97,7 @@ const ControlPanel = ({ galaxyParams, setGalaxyParams }: ControlPanelProps) => {
           />
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1 md:space-y-2">
           <div className="flex items-center justify-between">
             <Label className="flex items-center text-gray-300">
               <Shuffle size={16} className="mr-2 text-pink-400" />
@@ -114,7 +115,7 @@ const ControlPanel = ({ galaxyParams, setGalaxyParams }: ControlPanelProps) => {
           />
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1 md:space-y-2">
           <div className="flex items-center justify-between">
             <Label className="flex items-center text-gray-300">
               <Power size={16} className="mr-2 text-orange-400" />
@@ -132,8 +133,8 @@ const ControlPanel = ({ galaxyParams, setGalaxyParams }: ControlPanelProps) => {
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-4 pt-2">
-          <div className="space-y-2">
+        <div className="flex flex-row justify-around">
+          <div className="space-y-1 md:space-y-2">
             <Label className="flex items-center text-gray-300">
               <Palette size={16} className="mr-2 text-blue-400" />
               Inside Color
@@ -159,7 +160,7 @@ const ControlPanel = ({ galaxyParams, setGalaxyParams }: ControlPanelProps) => {
             </div>
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-1 md:space-y-2">
             <Label className="flex items-center text-gray-300">
               <Palette size={16} className="mr-2 text-blue-400" />
               Outside Color
@@ -185,6 +186,9 @@ const ControlPanel = ({ galaxyParams, setGalaxyParams }: ControlPanelProps) => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex justify-center">
+        <Button onClick={onClickButton}>View Galaxy</Button>
       </div>
     </div>
   );
