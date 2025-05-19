@@ -27,6 +27,13 @@ const Popup = ({ setShowVRModal }: PopupProps) => {
     router.push(`/`);
   };
 
+  const handleVR = () => {
+    requestAnimationFrame(() => {
+      store.enterVR()
+      setShowVRModal(false)
+    })
+  }
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
       <div className="w-full max-w-md mx-4 p-6 rounded-xl bg-gray-900 border border-gray-700 text-white space-y-4 shadow-xl opacity-90 pointer-events-auto">
@@ -36,7 +43,7 @@ const Popup = ({ setShowVRModal }: PopupProps) => {
           immersive 3D.
         </p>
         <div className="flex justify-center">
-          <Button text={'Enter Immersive Mode'} onClickButton={() => store.enterVR()} />
+          <Button text={'Enter Immersive Mode'} onClickButton={handleVR} />
         </div>
         <div className="h-px w-full bg-white/50 my-6" />
         <div className="flex justify-around space-x-2">
