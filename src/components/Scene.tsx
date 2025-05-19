@@ -18,9 +18,9 @@ const Scene = ({ galaxyParams }: CustomGalaxyProps) => {
       <color attach="background" args={['#000']} />
       <ambientLight intensity={0.2} />
       <PointerEvents />
-      <OrbitHandles damping={0.002} zoom={true} pan={false} />
+      <OrbitHandles damping={0.01} zoom={true} pan={false} />
       <XR store={store}>
-        <XROrigin scale={0.24} position={[0, 2.5, 10]} />
+        <XROrigin position={[0, 1, 12.5]} />
         <Suspense fallback={<Loader />}>
           <Galaxy {...galaxyParams} />
           <Stars radius={100} depth={50} count={10000} factor={4} saturation={0} fade speed={2} />

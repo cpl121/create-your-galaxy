@@ -74,6 +74,7 @@ const Galaxy = ({
         targetRef="from-context"
         translate="as-rotate"
         rotate={{ x: true, y: true, z: false }}
+        alwaysUpdate={true}
       >
         <points ref={points}>
           <bufferGeometry ref={geometryRef} />

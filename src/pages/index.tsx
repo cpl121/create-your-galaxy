@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { encodeGalaxyParams } from '@/lib/utils';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-export default function Home() {
+const Home = () => {
   const [isControlsOpen, setIsControlsOpen] = useState(true);
   const isMobile = useMediaQuery('(max-width: 768px)');
   const [galaxyParams, setGalaxyParams] = useState<GalaxyParams>({
@@ -126,4 +126,6 @@ export default function Home() {
       )}
     </main>
   );
-}
+};
+
+export default Home;
