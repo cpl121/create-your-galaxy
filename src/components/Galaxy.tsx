@@ -70,7 +70,11 @@ const Galaxy = ({
 
   return (
     <HandleTarget>
-      <Handle targetRef="from-context" translate="as-rotate" rotate={{ x: true, y: true, z: false }}>
+      <Handle
+        targetRef="from-context"
+        translate="as-rotate"
+        rotate={{ x: true, y: true, z: false }}
+      >
         <points ref={points}>
           <bufferGeometry ref={geometryRef} />
           <pointsMaterial

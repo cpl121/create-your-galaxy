@@ -29,10 +29,10 @@ const Popup = ({ setShowVRModal }: PopupProps) => {
 
   const handleVR = () => {
     requestAnimationFrame(() => {
-      store.enterVR()
-      setShowVRModal(false)
-    })
-  }
+      store.enterVR();
+      setShowVRModal(false);
+    });
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
