@@ -22,7 +22,8 @@ const Button = ({ children, onClick, type = 'button' }: ButtonProps) => {
         text-white
         font-medium
         rounded-full
-        text-lg
+        text-md
+        md:text-lg
         shadow-md
         shadow-purple-500/20
         hover:shadow-purple-500/40
@@ -31,8 +32,11 @@ const Button = ({ children, onClick, type = 'button' }: ButtonProps) => {
         backdrop-blur-sm 
         border 
         border-white/20 
-        px-8 py-4 
+        px-4 py-2 
+        md:px-8 md:py-4 
         cursor-pointer
+        w-full
+        md:w-fit
       `}
     >
       {children}

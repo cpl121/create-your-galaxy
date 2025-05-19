@@ -4,6 +4,7 @@ import { useRef, useMemo, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import type { GalaxyParams } from '@/lib/types';
+import { Handle, HandleTarget } from '@react-three/handle';
 
 const Galaxy = ({
   stars = 10000,
@@ -63,21 +64,30 @@ const Galaxy = ({
 
   useFrame((_, delta) => {
     if (points.current) {
-      points.current.rotation.y += delta * 0.05;
+      points.current.rotation.y += delta * 0.2;
     }
   });
 
   return (
-    <points ref={points}>
-      <bufferGeometry ref={geometryRef} />
-      <pointsMaterial
-        size={0.05}
-        sizeAttenuation
-        depthWrite={false}
-        vertexColors
-        blending={THREE.AdditiveBlending}
-      />
-    </points>
+    <HandleTarget>
+      <Handle
+        targetRef="from-context"
+        translate="as-rotate"
+        rotate={{ x: true, y: true, z: false }}
+        alwaysUpdate={true}
+      >
+        <points ref={points}>
+          <bufferGeometry ref={geometryRef} />
+          <pointsMaterial
+            size={0.05}
+            sizeAttenuation
+            depthWrite={false}
+            vertexColors
+            blending={THREE.AdditiveBlending}
+          />
+        </points>
+      </Handle>
+    </HandleTarget>
   );
 };
 
